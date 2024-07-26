@@ -1,12 +1,13 @@
 # Selenium Grid Docker Setup
 
-This repository provides a basic setup for running Selenium Grid with Docker, including a Selenium Hub and a Chrome Node for automated browser testing.
+This repository provides a setup for running Selenium Grid with Docker, including Selenium Hub and multiple browser nodes for automated testing.
 
 ## Files Included
 
-- `docker-compose.yml`: Configures the Selenium Hub and Chrome Node services.
-- `Dockerfile.hub`: Defines the Selenium Hub image.
-- `Dockerfile.node`: Defines the Chrome Node image.
+- `docker-compose.yml`: Configures the Selenium Hub and browser nodes.
+- `Dockerfile.chrome`: Defines the Chrome Node image.
+- `Dockerfile.edge`: Defines the Edge Node image.
+- `Dockerfile.firefox`: Defines the Firefox Node image.
 
 ## Getting Started
 
@@ -17,11 +18,12 @@ This repository provides a basic setup for running Selenium Grid with Docker, in
     cd your-repo
     ```
 
-2. Build the Docker images for Selenium Hub and Chrome Node:
+2. Build the Docker images for Selenium Hub and browser nodes:
 
     ```bash
-    docker build -t your-selenium-hub -f Dockerfile.hub .
-    docker build -t your-selenium-chrome -f Dockerfile.node .
+    docker build -t your-selenium-chrome -f Dockerfile.chrome .
+    docker build -t your-selenium-edge -f Dockerfile.edge .
+    docker build -t your-selenium-firefox -f Dockerfile.firefox .
     ```
 
 3. Use Docker Compose to start the Selenium Grid:
@@ -30,7 +32,7 @@ This repository provides a basic setup for running Selenium Grid with Docker, in
     docker-compose up
     ```
 
-    This command will launch both the Selenium Hub and Chrome Node, exposing the Selenium Grid on port 4444.
+    This will start the Selenium Hub and all specified nodes, exposing the Selenium Grid on port 4444.
 
 4. Open your browser and go to `http://localhost:4444` to access the Selenium Grid console.
 
