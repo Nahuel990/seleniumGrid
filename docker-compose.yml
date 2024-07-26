@@ -21,8 +21,8 @@ services:
     depends_on:
       - selenium-hub
 
-  windows:
-    image: selenium/node-chrome:latest
+  firefox:
+    image: selenium/node-firefox:latest
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
